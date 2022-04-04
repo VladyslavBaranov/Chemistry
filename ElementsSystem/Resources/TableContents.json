@@ -1,0 +1,62 @@
+[
+    {
+        "category": "Non-metals",
+        "elements": [
+            {
+                "order": 1
+                "name": "Hyndrogen"
+                "short": "H"
+            },
+            {
+                "order": 6
+                "name": "Carbon"
+                "short": "C"
+            },
+            {
+                "order": 7
+                "name": "Nitrogen"
+                "short": "N"
+            }
+        ]
+    },
+    {
+        "category": "Non-metals",
+        "elements": [
+            {
+                "order": 1
+                "name": "Hyndrogen"
+                "short": "H"
+            },
+            {
+                "order": 6
+                "name": "Carbon"
+                "short": "C"
+            },
+            {
+                "order": 7
+                "name": "Nitrogen"
+                "short": "N"
+            }
+        ]
+    },
+    {
+        "category": "Non-metals",
+        "elements": [
+            {
+                "order": 1
+                "name": "Hyndrogen"
+                "short": "H"
+            },
+            {
+                "order": 6
+                "name": "Carbon"
+                "short": "C"
+            },
+            {
+                "order": 7
+                "name": "Nitrogen"
+                "short": "N"
+            }
+        ]
+    }
+]
