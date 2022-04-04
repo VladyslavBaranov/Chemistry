@@ -9,8 +9,6 @@ import Foundation
 
 final class MainViewModel {
     
-    var currentElementCharacteristics: ElementCharacteristics = .mass
-    
     var searchKey = "" {
         didSet {
             if searchKey.isEmpty {
@@ -31,6 +29,18 @@ final class MainViewModel {
     init() {
         elementsReader = ElementsReader()
         reloadCollectionView?()
+    }
+    
+    func getCurrentCharacteristic() -> ElementCharacteristics {
+        let currentCharacteristicKey = "com.currentCharacteristicKey"
+        guard let value = UserDefaults.standard.value(forKey: currentCharacteristicKey) as? String else {
+            return .mass
+        }
+        return .init(rawValue: value) ?? .mass
+    }
+    
+    func setCurrentCharacteristic(_ char: ElementCharacteristics) {
+        UserDefaults.standard.set(char.rawValue, forKey: "com.currentCharacteristicKey")
     }
     
     func getElement(for indexPath: IndexPath) -> ChemicalElement? {

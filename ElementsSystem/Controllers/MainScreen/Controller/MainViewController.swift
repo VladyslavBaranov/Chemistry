@@ -60,7 +60,8 @@ final class MainViewController: UICollectionViewController {
                 title: characteristic.rawValue,
                 image: UIImage(systemName: "camera")
             ) { (_) in
-                self.viewModel.currentElementCharacteristics = characteristic
+                self.viewModel.setCurrentCharacteristic(characteristic)
+                self.navigationItem.title = characteristic.rawValue
                 self.collectionView.reloadData()
             }
             return action
@@ -96,7 +97,7 @@ final class MainViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "id", for: indexPath) as! MainElementCollectionViewCell
         if let element = viewModel.getElement(for: indexPath) {
             cell.element = element
-            cell.value = element.getValueFor(characteristic: viewModel.currentElementCharacteristics)
+            cell.currentCharacteristic = viewModel.getCurrentCharacteristic()
         }
         cell.backgroundColor = .systemGray6
         
@@ -120,7 +121,6 @@ private extension MainViewController {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Element name or atomic number"
         
-        navigationItem.title = "Atomic radius"
         navigationItem.searchController = searchController
         let item = UIBarButtonItem(
             title: nil,
@@ -139,7 +139,9 @@ private extension MainViewController {
     func setupData() {
         viewModel = MainViewModel()
         viewModel.reloadCollectionView = { [unowned self] in
+            navigationItem.title = viewModel.getCurrentCharacteristic().rawValue
             collectionView.reloadData()
         }
+        navigationItem.title = viewModel.getCurrentCharacteristic().rawValue
     }
 }

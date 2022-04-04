@@ -9,13 +9,15 @@ import UIKit
 import AVFoundation
 
 final class MainElementCollectionViewCell: UICollectionViewCell {
-    
-    var value: String = "" {
+
+    var currentCharacteristic: ElementCharacteristics = .config {
         didSet {
-            valueLabel.text = value
+            valueLabel.text = element.getValueFor(characteristic: currentCharacteristic)
             valueLabel.sizeToFit()
         }
     }
+    
+    lazy var emitterLayer = CAEmitterLayer()
     
     var element: ChemicalElement! {
         didSet {
@@ -59,9 +61,14 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if element.isRadioactive != nil {
+            rotateRadiationImage()
+            emit()
+        }
         
-        UIPasteboard.general.string = value.replacingOccurrences(of: ".", with: ",")
+        UIPasteboard.general.string = valueLabel.text?.replacingOccurrences(of: ".", with: ",")
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        
         UIView.animate(withDuration: 0.3) {
             self.transform = CGAffineTransform.init(scaleX: 0.84, y: 0.84)
         } completion: { _ in
@@ -71,11 +78,20 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        emitterLayer.emitterCells = nil
+    }
+    
     private func commonInit() {
         titleLabel = UILabel()
         addSubview(titleLabel)
         titleLabel.font = UIFont(name: "Times", size: 50)
         titleLabel.textAlignment = .left
+        // titleLabel.layer.shadowColor = UIColor(red: 0.7, green: 0.7, blue: 1, alpha: 1).cgColor
+        // titleLabel.layer.shadowRadius = 10
+        // titleLabel.textColor = UIColor(red: 0.8, green: 0.8, blue: 1, alpha: 1)
+        // titleLabel.layer.shadowOpacity = 1
         
         orderLabel = UILabel()
         addSubview(orderLabel)
@@ -98,4 +114,31 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         addSubview(radiationImage)
     }
     
+    private func rotateRadiationImage() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation.z")
+        anim.toValue = CGFloat.pi * 2
+        anim.duration = 0.3
+        anim.timingFunction = .init(name: .easeOut)
+        anim.isCumulative = true
+        anim.repeatCount = 1
+        radiationImage?.layer.add(anim, forKey: "anim")
+    }
+    
+    private func emit() {
+        emitterLayer.emitterPosition = CGPoint(x: bounds.midX, y: bounds.midY)
+            
+        let cell = CAEmitterCell()
+        cell.birthRate = 1.5
+        cell.lifetime = .random(in: 1...1.8)
+        cell.velocity = 200
+        cell.scale = 0.1
+        cell.emissionLongitude = CGFloat.pi
+        cell.emissionRange = CGFloat.pi / 4
+        cell.emissionRange = CGFloat.pi * 2.0
+        cell.contents = UIImage(named: "square")!.cgImage
+            
+        emitterLayer.emitterCells = [cell]
+            
+        layer.addSublayer(emitterLayer)
+    }
 }

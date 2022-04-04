@@ -3,59 +3,339 @@
         "category": "Non-metals",
         "elements": [
             {
-                "order": 1
-                "name": "Hyndrogen"
-                "short": "H"
+                "order": 1,
+                "group": 1,
+                "period": 1,
+                "config": ["1s¹"],
+                "name": "Hyndrogen",
+                "short": "H",
+                "mass": 1.008,
+                "radius": 53,
+                "density": 0.00008988,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
             },
             {
-                "order": 6
-                "name": "Carbon"
-                "short": "C"
+                "order": 6,
+                "group": 14,
+                "period": 2,
+                "config": ["He", "2s²2p²"],
+                "name": "Carbon",
+                "short": "C",
+                "mass": 12.011,
+                "radius": 67,
+                "density": 2.25,
+                "meltPoint": 3550,
+                "boilPoint": 4827,
+                "oxidation": [-4, -3, -2, -1, 0, 1, 2, 3, 4]
             },
             {
-                "order": 7
-                "name": "Nitrogen"
-                "short": "N"
+                "order": 7,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p³"],
+                "name": "Nitrogen",
+                "short": "N",
+                "mass": 14.0067,
+                "radius": 56,
+                "density": 0.0012506,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 8,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁴"],
+                "name": "Oxygen",
+                "short": "O",
+                "mass": 15.9994,
+                "radius": 49,
+                "density": 0.001429,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 9,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁵"],
+                "name": "Fluorine",
+                "short": "F",
+                "mass": 18.9984,
+                "radius": 42,
+                "density": 0.001696,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 15,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁵"],
+                "name": "Phosphorus",
+                "short": "P",
+                "mass": 30.9737,
+                "radius": 42,
+                "density": 0.001696,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 16,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁵"],
+                "name": "Sulfur",
+                "short": "S",
+                "mass": 32.06,
+                "radius": 42,
+                "density": 0.001696,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 17,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁵"],
+                "name": "Chlorine",
+                "short": "Cl",
+                "mass": 35.453,
+                "radius": 42,
+                "density": 0.001696,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 34,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁵"],
+                "name": "Selenium",
+                "short": "Se",
+                "mass": 78.96,
+                "radius": 42,
+                "density": 0.001696,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 35,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁵"],
+                "name": "Bromine",
+                "short": "Br",
+                "mass": 79.904,
+                "radius": 42,
+                "density": 0.001696,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 53,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s²2p⁵"],
+                "name": "Iodine",
+                "short": "I",
+                "mass": 126.9,
+                "radius": 42,
+                "density": 0.001696,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            
+        ]
+    },
+    {
+        "category": "Alkali metals",
+        "elements": [
+            {
+                "order": 3,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s¹"],
+                "name": "Lithium",
+                "short": "Li",
+                "mass": 6.941,
+                "radius": 167,
+                "density": 0.534,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 11,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s¹"],
+                "name": "Sodium",
+                "short": "Na",
+                "mass": 22.9897,
+                "radius": 190,
+                "density": 0.971,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 19,
+                "group": 1,
+                "period": 1,
+                "config": ["Ar", "4s¹"],
+                "name": "Potassium",
+                "short": "K",
+                "mass": 39.098,
+                "radius": 243,
+                "density": 0.862,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 37,
+                "group": 1,
+                "period": 1,
+                "config": ["Ar", "4s¹"],
+                "name": "Rubidium",
+                "short": "Rb",
+                "mass": 39.098,
+                "radius": 243,
+                "density": 0.862,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 55,
+                "group": 1,
+                "period": 1,
+                "config": ["Ar", "4s¹"],
+                "name": "Caesium",
+                "short": "Cs",
+                "mass": 39.098,
+                "radius": 243,
+                "density": 0.862,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 87,
+                "group": 1,
+                "period": 1,
+                "config": ["Ar", "4s¹"],
+                "name": "Francium",
+                "short": "Fr",
+                "mass": 39.098,
+                "radius": 243,
+                "density": 0.862,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1],
+                "isRadioactive": true
             }
         ]
     },
     {
-        "category": "Non-metals",
+        "category": "Eart Alkali metals",
         "elements": [
             {
-                "order": 1
-                "name": "Hyndrogen"
-                "short": "H"
+                "order": 4,
+                "group": 1,
+                "period": 1,
+                "config": ["He", "2s¹"],
+                "name": "Beryllium",
+                "short": "Be",
+                "mass": 9.0121,
+                "radius": 112,
+                "density": 1.85,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
             },
             {
-                "order": 6
-                "name": "Carbon"
-                "short": "C"
+                "order": 12,
+                "group": 1,
+                "period": 1,
+                "config": ["Ne", "3s¹"],
+                "name": "Magnesium",
+                "short": "Mg",
+                "mass": 24.305,
+                "radius": 145,
+                "density": 1.738,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
             },
             {
-                "order": 7
-                "name": "Nitrogen"
-                "short": "N"
-            }
-        ]
-    },
-    {
-        "category": "Non-metals",
-        "elements": [
-            {
-                "order": 1
-                "name": "Hyndrogen"
-                "short": "H"
+                "order": 20,
+                "group": 1,
+                "period": 1,
+                "config": ["Ar", "4s¹"],
+                "name": "Calcium",
+                "short": "Ca",
+                "mass": 40.08,
+                "radius": 194,
+                "density": 1.54,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
             },
             {
-                "order": 6
-                "name": "Carbon"
-                "short": "C"
+                "order": 38,
+                "group": 1,
+                "period": 1,
+                "config": ["Kr", "5s²"],
+                "name": "Strontium",
+                "short": "Sr",
+                "mass": 87.62,
+                "radius": 219,
+                "density": 1.85,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
             },
             {
-                "order": 7
-                "name": "Nitrogen"
-                "short": "N"
+                "order": 56,
+                "group": 1,
+                "period": 1,
+                "config": ["Xe", "6s²"],
+                "name": "Barium",
+                "short": "Ba",
+                "mass": 137.33,
+                "radius": 253,
+                "density": 1.738,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1]
+            },
+            {
+                "order": 88,
+                "group": 1,
+                "period": 1,
+                "config": ["Rn", "7s²"],
+                "name": "Radium",
+                "short": "Ra",
+                "mass": 226,
+                "radius": 215,
+                "density": 1.54,
+                "meltPoint": -259.16,
+                "boilPoint": -252.879,
+                "oxidation": [-1, 1],
+                "isRadioactive": true
             }
         ]
     }
