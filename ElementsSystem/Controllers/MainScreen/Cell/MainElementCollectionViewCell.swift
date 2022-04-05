@@ -95,12 +95,12 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         
         orderLabel = UILabel()
         addSubview(orderLabel)
-        orderLabel.font = UIFont(name: "Times", size: 16)
+        orderLabel.font = UIFont(name: "Times-Bold", size: 17)
         orderLabel.textAlignment = .left
         
         nameLabel = UILabel()
         addSubview(nameLabel)
-        nameLabel.font = UIFont(name: "Times", size: 16)
+        nameLabel.font = .systemFont(ofSize: 16)
         nameLabel.textAlignment = .left
         
         valueLabel = UILabel()
@@ -128,13 +128,14 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         emitterLayer.emitterPosition = CGPoint(x: bounds.midX, y: bounds.midY)
             
         let cell = CAEmitterCell()
-        cell.birthRate = 1.5
+        cell.birthRate = 5
         cell.lifetime = .random(in: 1...1.8)
         cell.velocity = 200
         cell.scale = 0.1
         cell.emissionLongitude = CGFloat.pi
         cell.emissionRange = CGFloat.pi / 4
         cell.emissionRange = CGFloat.pi * 2.0
+        cell.color = UIColor.label.cgColor
         cell.contents = UIImage(named: "square")!.cgImage
             
         emitterLayer.emitterCells = [cell]

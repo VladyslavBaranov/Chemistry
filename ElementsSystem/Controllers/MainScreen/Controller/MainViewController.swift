@@ -5,6 +5,8 @@
 //  Created by Vladyslav Baranov on 03.04.2022.
 //
 
+// ¹⁰²³⁴⁵⁶⁷⁸⁹
+
 import UIKit
 
 final class MainViewController: UICollectionViewController {
