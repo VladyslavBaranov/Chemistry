@@ -3,6 +3,16 @@
     {
       "filename" : "square.jpeg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "kazimir-malevich-black-square.jpeg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
