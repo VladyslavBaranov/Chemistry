@@ -6,6 +6,8 @@
 //
 
 // ¹⁰²³⁴⁵⁶⁷⁸⁹
+// radius: pm
+// melt: C
 
 import UIKit
 
@@ -16,6 +18,19 @@ final class MainViewController: UICollectionViewController {
     let searchController = UISearchController()
 
     private let layoutManager = LayoutManager()
+	
+	private let colors: [UIColor?] = [
+		.init(named: "Non-metals"),
+		.init(named: "Metalloids"),
+		.init(named: "Noble"),
+		.init(named: "Alkali"),
+		.init(named: "EarthAlkali"),
+		.init(named: "PostTransition"),
+		.init(named: "Transition"),
+		.init(named: "Lanthanides"),
+		.init(named: "Actinides"),
+		.systemGray6
+	]
 
     func createSection(windowFrame: CGRect, traitCollection: UITraitCollection, cellHeightRatio: CGFloat) -> NSCollectionLayoutSection {
         
@@ -24,12 +39,12 @@ final class MainViewController: UICollectionViewController {
         let fraction: CGFloat = 1 / CGFloat(cellsPerRow)
         let inset = 5.0
         // Item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalWidth(fraction))
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalWidth(fraction * 0.7))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         // Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction))
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction * 0.7))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
         
         // Section
@@ -60,7 +75,7 @@ final class MainViewController: UICollectionViewController {
         let actions = characteristicsList.map { characteristic -> UIAction in
             let action = UIAction(
                 title: characteristic.rawValue,
-                image: UIImage(systemName: "camera")
+                image: nil
             ) { (_) in
                 self.viewModel.setCurrentCharacteristic(characteristic)
                 self.navigationItem.title = characteristic.rawValue
@@ -101,7 +116,7 @@ final class MainViewController: UICollectionViewController {
             cell.element = element
             cell.currentCharacteristic = viewModel.getCurrentCharacteristic()
         }
-        cell.backgroundColor = .systemGray6
+		cell.backgroundColor = colors[indexPath.section] ?? .systemGray6
         
         cell.layer.cornerCurve = .continuous
         cell.layer.cornerRadius = 10

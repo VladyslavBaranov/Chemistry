@@ -28,15 +28,15 @@ struct ChemicalElement: Decodable {
     var mass: Double
     var radius: Int
     var density: Double
-    var meltPoint: Double
-    var boilPoint: Double
+    var meltPoint: Double?
+    var boilPoint: Double?
     var oxidation: [Int]
     var isRadioactive: Bool?
     
     func getValueFor(characteristic: ElementCharacteristics) -> String {
         switch characteristic {
         case .orderPeriod:
-            return "\(order), \(period)"
+            return "\(group), \(period)"
         case .config:
             if config.count == 1 {
                 return config[0]
@@ -51,9 +51,9 @@ struct ChemicalElement: Decodable {
         case .density:
             return "\(density)"
         case .meltPoint:
-            return "\(meltPoint)"
+			return meltPoint == nil ? "N/A" : "\(meltPoint!)"
         case .boilPoint:
-            return "\(boilPoint)"
+			return boilPoint == nil ? "N/A" : "\(boilPoint!)"
         case .oxidation:
             return "\(mass)"
         }
