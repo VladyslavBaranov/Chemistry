@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  ElementsSystem
+
+  Created by VladyslavMac on 06.04.2022.
+  
+*/
+
+"list_group_period" = "Groupe & Période";
+"list_config" = "Configuration électronique";
+"list_mass" = "Masse atomique";
+"list_radius" = "Rayon atomique";
+"list_density" = "Densité";
+"list_melt" = "Point de fusion";
+"list_boil" = "Point d'ébullition";
+
+"Non-metals" = "Non-métaux" ;
+"Metalloids" = "Métalloïdes" ;
+"Noble gases" = "Gaz nobles" ;
+"Alcali" = "Métaux alcalins" ;
+"EarthAlkali" = "Métaux alcalino-terreux" ;
+"PostTransition" = "Post métaux de transition" ;
+"Transition" = "Métaux de transition" ;
+"Lanthanides" = "Lanthanides" ;
+"Actinides" = "Actinides" ;

@@ -8,14 +8,18 @@
 import Foundation
 
 enum ElementCharacteristics: String, CaseIterable {
-    case orderPeriod = "Group & Period"
-    case config = "Configuration"
-    case mass = "Atomic mass"
-    case radius = "Atomic radius"
-    case density = "Density"
-    case meltPoint = "Melting point"
-    case boilPoint = "Boiling point"
+    case orderPeriod = "list_group_period"
+    case config = "list_config"
+    case mass = "list_mass"
+    case radius = "list_radius"
+    case density = "list_density"
+    case meltPoint = "list_melt"
+    case boilPoint = "list_boil"
     case oxidation = "Oxidation"
+	
+	func getLocazedString() -> String {
+		localizedString(rawValue)
+	}
 }
 
 struct ChemicalElement: Decodable {
@@ -70,7 +74,7 @@ struct ChemicalElement: Decodable {
 				return "\(value.getFormattedString()) \(TemperatureUnit.currentUnit().sign())"
 			}
         case .oxidation:
-            return "\(mass)"
+			return "\(oxidation)"
         }
     }
 }
@@ -78,6 +82,17 @@ struct ChemicalElement: Decodable {
 struct ElementCategory: Decodable {
     var category: String
     var elements: [ChemicalElement]
+	
+	enum CodingKeys: String, CodingKey {
+		case category = "category"
+		case elements = "elements"
+	}
+	
+	init(from decoder: Decoder) throws {
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		category = try values.decode(String.self, forKey: .category)
+		elements = try values.decode([ChemicalElement].self, forKey: .elements)
+	}
 }
 
 class ElementsReader {

@@ -94,11 +94,11 @@ final class MainViewController: UICollectionViewController {
 
 	func createLayout() -> UICollectionViewLayout {
 		let layout = UICollectionViewCompositionalLayout { [unowned self] sectionIndex, environment in
-			if UIDevice.current.userInterfaceIdiom == .phone {
-				return createSectionForPhone(windowFrame: view.frame)
-			} else {
+//			if UIDevice.current.userInterfaceIdiom == .phone {
+//				return createSectionForPhone(windowFrame: view.frame)
+//			} else {
 				return createSectionForPad(windowFrame: view.frame, traitCollection: traitCollection)
-			}
+			// }
 		}
         return layout
     }
@@ -109,11 +109,11 @@ final class MainViewController: UICollectionViewController {
         
         let actions = characteristicsList.map { characteristic -> UIAction in
             let action = UIAction(
-                title: characteristic.rawValue,
+				title: characteristic.getLocazedString(),
                 image: nil
             ) { (_) in
                 self.viewModel.setCurrentCharacteristic(characteristic)
-                self.navigationItem.title = characteristic.rawValue
+				self.navigationItem.title = characteristic.getLocazedString()
                 self.collectionView.reloadData()
             }
             return action
@@ -196,7 +196,8 @@ private extension MainViewController {
 		)
 		leadingItem.tintColor = .label
 		
-		navigationItem.rightBarButtonItems = [item, leadingItem]
+		navigationItem.leftBarButtonItem = leadingItem
+		navigationItem.rightBarButtonItem = item
 		
 		navigationItem.rightBarButtonItem?.tintColor = .label
 		navigationController?.navigationBar.prefersLargeTitles = true
@@ -205,10 +206,10 @@ private extension MainViewController {
     func setupData() {
         viewModel = MainViewModel()
         viewModel.reloadCollectionView = { [unowned self] in
-            navigationItem.title = viewModel.getCurrentCharacteristic().rawValue
+			navigationItem.title = viewModel.getCurrentCharacteristic().getLocazedString()
             collectionView.reloadData()
 		}
-		navigationItem.title = viewModel.getCurrentCharacteristic().rawValue
+		navigationItem.title = viewModel.getCurrentCharacteristic().getLocazedString()
 	}
 	
 	@objc func openPreferences() {

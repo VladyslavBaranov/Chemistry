@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  ElementsSystem
+
+  Created by VladyslavMac on 06.04.2022.
+  
+*/
+
+"list_group_period" = "组和期间";
+"list_config" = "电子配置";
+"list_mass" = "原子质量";
+"list_radius" = "原子半径";
+"list_density" = "密度";
+"list_melt" = "熔点";
+"list_boil" = "沸点";
+
+"Non-metals" ="非金属"；
+"Metalloids" = "类金属"；
+"Noble gases" = "稀有气体"；
+"Alkali" = "碱金属"；
+"EarthAlkali" = "地球碱金属";
+"PostTransition" = "后过渡金属";
+"Transition" = "过渡金属"；
+"Lanthanides" = "镧系元素"；
+"Actinides" = "锕系元素"；

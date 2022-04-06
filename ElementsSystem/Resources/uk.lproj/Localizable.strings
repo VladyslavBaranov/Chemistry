@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  ElementsSystem
+
+  Created by VladyslavMac on 06.04.2022.
+  
+*/
+
+"list_group_period" = "Група та період";
+"list_config" = "Електронна конфігурація";
+"list_mass" = "Атомна маса";
+"list_radius" = "Атомний радіус";
+"list_density" = "Щільність";
+"list_melt" = "Температура плавлення";
+"list_boil" = "Температура кипіння";
+
+"Non-metals" = "Неметали";
+"Metalloids" = "Напівметали";
+"Noble gases" = "Благородні гази";
+"Alkali" = "Лужні метали";
+"EarthAlkali" = "Лужноземельні метали";
+"PostTransition" = "Метали";
+"Transition" = "Перехідні метали";
+"Lanthanides" = "Лантаноїди";
+"Actinides" = "Актиноїди";

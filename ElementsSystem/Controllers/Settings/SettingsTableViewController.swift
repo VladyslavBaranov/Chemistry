@@ -30,7 +30,7 @@ final class SettingsTableViewController: UITableViewController {
 			title: "Units",
 			options: [
 				.init(title: "Temperature", value: TemperatureUnit.currentUnit().sign()),
-				.init(title: "Density", value: "g/L")
+				.init(title: "Density", value: DensityUnit.currentUnit().sign())
 			]
 		)
 	]

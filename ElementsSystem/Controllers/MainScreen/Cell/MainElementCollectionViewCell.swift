@@ -106,7 +106,7 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         
         valueLabel = UILabel()
         addSubview(valueLabel)
-        valueLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+        valueLabel.font = .systemFont(ofSize: 17, weight: .semibold)
         valueLabel.textColor = UIColor(named: "Value2")
         valueLabel.textAlignment = .left
         
