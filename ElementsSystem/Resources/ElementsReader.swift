@@ -27,7 +27,7 @@ struct ChemicalElement: Decodable {
     var short: String
     var mass: Double
     var radius: Int
-    var density: Double
+    var density: Double?
     var meltPoint: Double?
     var boilPoint: Double?
     var oxidation: [Int]
@@ -45,15 +45,30 @@ struct ChemicalElement: Decodable {
             }
             return config.joined()
         case .mass:
-            return "\(mass)"
+            return "\(mass) u"
         case .radius:
-            return "\(radius)"
+            return "\(radius) pm"
         case .density:
-            return "\(density)"
+			if density == nil {
+				return "N/A"
+			} else {
+				let value = density!.toCurrentDensityUnit()
+				return "\(value.getFormattedString()) \(DensityUnit.currentUnit().sign())"
+			}
         case .meltPoint:
-			return meltPoint == nil ? "N/A" : "\(meltPoint!)"
+			if meltPoint == nil {
+				return "N/A"
+			} else {
+				let value = meltPoint!.toCurrentTempeatureUnit()
+				return "\(value.getFormattedString()) \(TemperatureUnit.currentUnit().sign())"
+			}
         case .boilPoint:
-			return boilPoint == nil ? "N/A" : "\(boilPoint!)"
+			if boilPoint == nil {
+				return "N/A"
+			} else {
+				let value = boilPoint!.toCurrentTempeatureUnit()
+				return "\(value.getFormattedString()) \(TemperatureUnit.currentUnit().sign())"
+			}
         case .oxidation:
             return "\(mass)"
         }
@@ -66,7 +81,8 @@ struct ElementCategory: Decodable {
 }
 
 class ElementsReader {
-
+	
+	static let numFormatter = NumberFormatter()
     var categories: [ElementCategory] = []
     
     init() {
@@ -74,6 +90,8 @@ class ElementsReader {
         guard let data = try? Data(contentsOf: url) else { fatalError() }
         guard let categories = try? JSONDecoder().decode([ElementCategory].self, from: data) else { fatalError() }
         self.categories = categories
+		Self.numFormatter.minimumFractionDigits = 0
+		Self.numFormatter.maximumFractionDigits = 5
     }
     
     func searchWith(key: String) -> [ElementCategory] {

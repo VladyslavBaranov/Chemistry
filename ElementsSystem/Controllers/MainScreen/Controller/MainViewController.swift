@@ -8,6 +8,7 @@
 // ¹⁰²³⁴⁵⁶⁷⁸⁹
 // radius: pm
 // melt: C
+// den: g/L
 
 import UIKit
 
@@ -31,25 +32,58 @@ final class MainViewController: UICollectionViewController {
 		.init(named: "Actinides"),
 		.systemGray6
 	]
+	
+	func createSectionForPad(windowFrame: CGRect, traitCollection: UITraitCollection) -> NSCollectionLayoutSection {
+			
+			let cellsPerRow = layoutManager.cellsForRow(windowFrame: windowFrame, traitCollection: traitCollection)
 
-    func createSection(windowFrame: CGRect, traitCollection: UITraitCollection, cellHeightRatio: CGFloat) -> NSCollectionLayoutSection {
-        
-        let cellsPerRow = layoutManager.cellsForRow(windowFrame: windowFrame, traitCollection: traitCollection)
+			let fraction: CGFloat = 1 / CGFloat(cellsPerRow)
+			let inset = 5.0
+			// Item
+			let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalWidth(fraction * 0.7))
+			let item = NSCollectionLayoutItem(layoutSize: itemSize)
+			
+			item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+			// Group
+			let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction * 0.7))
+			let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
+			
+			// Section
+			let section = NSCollectionLayoutSection(group: group)
+			// section.orthogonalScrollingBehavior = .continuous
+			section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+			
+			let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+			let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+			section.boundarySupplementaryItems = [headerItem]
+			return section
+		}
 
-        let fraction: CGFloat = 1 / CGFloat(cellsPerRow)
+    func createSectionForPhone(windowFrame: CGRect) -> NSCollectionLayoutSection {
+		// var hFraction: CGFloat = 0.7
+		
         let inset = 5.0
+		
+		let largeItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
+		let largeItem = NSCollectionLayoutItem(layoutSize: largeItemSize)
+		largeItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
         // Item
-		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalWidth(fraction * 0.7))
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.35))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
         // Group
-		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction * 0.7))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6), heightDimension: .fractionalWidth(1))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item]) //
+		
+		let outerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.7))
+		let outerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: outerSize, subitems: [group])
         
         // Section
-        let section = NSCollectionLayoutSection(group: group)
-        // section.orthogonalScrollingBehavior = .continuous
+        let section = NSCollectionLayoutSection(group: outerGroup)
+		section.interGroupSpacing = -(windowFrame.width * 0.4)
+        section.orthogonalScrollingBehavior = .continuous //
         section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         
         let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
@@ -58,13 +92,14 @@ final class MainViewController: UICollectionViewController {
         return section
     }
 
-    func createLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { [unowned self] sectionIndex, environment in
-            return createSection(
-                windowFrame: view.frame,
-                traitCollection: environment.traitCollection,
-                cellHeightRatio: 0.25)
-        }
+	func createLayout() -> UICollectionViewLayout {
+		let layout = UICollectionViewCompositionalLayout { [unowned self] sectionIndex, environment in
+			if UIDevice.current.userInterfaceIdiom == .phone {
+				return createSectionForPhone(windowFrame: view.frame)
+			} else {
+				return createSectionForPad(windowFrame: view.frame, traitCollection: traitCollection)
+			}
+		}
         return layout
     }
     
@@ -89,7 +124,6 @@ final class MainViewController: UICollectionViewController {
         
         return addNewMenu
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -137,28 +171,56 @@ private extension MainViewController {
     func setupUI() {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Element name or atomic number"
-        
-        navigationItem.searchController = searchController
-        let item = UIBarButtonItem(
-            title: nil,
-            image: UIImage(systemName: "ellipsis.circle"),
-            primaryAction: nil,
-            menu: createMenu())
-        navigationItem.rightBarButtonItem = item
-        navigationItem.rightBarButtonItem?.tintColor = .label
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
+
         view.backgroundColor = .systemBackground
         collectionView.register(MainElementCollectionViewCell.self, forCellWithReuseIdentifier: "id")
         collectionView.register(MainCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "header")
         collectionView.collectionViewLayout = createLayout()
+		setupNavigationController()
     }
+	
+	func setupNavigationController() {
+		navigationItem.searchController = searchController
+		let item = UIBarButtonItem(
+			title: nil,
+			image: UIImage(systemName: "ellipsis.circle"),
+			primaryAction: nil,
+			menu: createMenu())
+		item.tintColor = .label
+		
+		let leadingItem = UIBarButtonItem(
+			image: UIImage(systemName: "gearshape"),
+			style: .plain,
+			target: self,
+			action: #selector(openPreferences)
+		)
+		leadingItem.tintColor = .label
+		
+		navigationItem.rightBarButtonItems = [item, leadingItem]
+		
+		navigationItem.rightBarButtonItem?.tintColor = .label
+		navigationController?.navigationBar.prefersLargeTitles = true
+	}
+	
     func setupData() {
         viewModel = MainViewModel()
         viewModel.reloadCollectionView = { [unowned self] in
             navigationItem.title = viewModel.getCurrentCharacteristic().rawValue
             collectionView.reloadData()
-        }
-        navigationItem.title = viewModel.getCurrentCharacteristic().rawValue
-    }
+		}
+		navigationItem.title = viewModel.getCurrentCharacteristic().rawValue
+	}
+	
+	@objc func openPreferences() {
+		let settingsViewController = SettingsTableViewController(style: .insetGrouped)
+		settingsViewController.delegate = self
+		let nav = UINavigationController(rootViewController: settingsViewController)
+		present(nav, animated: true, completion: nil)
+	}
+}
+
+extension MainViewController: SettingsTableViewControllerDelegate {
+	func shouldReloadTable() {
+		collectionView.reloadData()
+	}
 }

@@ -22,6 +22,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let controller = MainViewController(collectionViewLayout: UICollectionViewFlowLayout())
         let nav = UINavigationController(rootViewController: controller)
         window?.rootViewController = nav
+		
+		let appearanceId = UserDefaultsHelper.shared.getAppearanceId()
+		switch appearanceId {
+		case 0:
+			window?.overrideUserInterfaceStyle = .unspecified
+		case 1:
+			window?.overrideUserInterfaceStyle = .light
+		case 2:
+			window?.overrideUserInterfaceStyle = .dark
+		default:
+			break
+		}
+		
+		
         window?.makeKeyAndVisible()
     }
 
