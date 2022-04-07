@@ -15,7 +15,7 @@ enum ElementCharacteristics: String, CaseIterable {
     case density = "list_density"
     case meltPoint = "list_melt"
     case boilPoint = "list_boil"
-    case oxidation = "Oxidation"
+    case oxidation = "list_oxidation"
 	
 	func getLocalizedString() -> String {
 		localizedString(rawValue)
@@ -59,6 +59,9 @@ struct ChemicalElement: Decodable {
 		case .boilPoint:
 			return "\(boilPoint?.toCurrentTempeatureUnit() ?? 0)"
 		case .oxidation:
+			if order == 6 {
+				return "-4 to +4"
+			}
 			return oxidation.map { String($0 ?? 0) }
 			.joined(separator: ",")
 			.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -102,7 +105,13 @@ struct ChemicalElement: Decodable {
 				return "\(value.getFormattedString()) \(TemperatureUnit.currentUnit().sign())"
 			}
         case .oxidation:
-			let string = oxidation.map { String($0 ?? 0) }
+			if order == 6 {
+				return "-4 to +4"
+			}
+			let string = oxidation.map {
+				let int = $0 ?? 0
+				return int <= 0 ? "\(int)" : "+\(int)"
+			}
 				.joined(separator: ",")
 				.trimmingCharacters(in: .whitespacesAndNewlines)
 			return string.isEmpty ? "N/A" : string

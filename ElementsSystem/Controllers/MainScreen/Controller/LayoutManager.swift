@@ -61,12 +61,12 @@ struct LayoutManager {
 		switch DeviceCategory.getCurrentSizeCategory() {
 		case .smallPhone:
 			return 14
-		case .midSizePhone:
+		case .midSizePhone, .midPad, .pad11, .pad13:
 			return 15
 		case .maxPhone:
 			return 17
 		default:
-			return 17
+			return 15
 		}
 	}
 	
@@ -150,6 +150,7 @@ struct LayoutManager {
 		
 		let device = UIDevice.current.userInterfaceIdiom
 		let orientation = UIDevice.current.orientation
+		let deviceCategory = DeviceCategory.getCurrentSizeCategory()
 		
 		switch device {
 		case .phone:
@@ -161,25 +162,58 @@ struct LayoutManager {
 			switch fraction {
 			case 0...0.4:
 				switch orientation {
-				case .portrait, .portraitUpsideDown:
+				case .portrait, .portraitUpsideDown, .faceUp:
+					if deviceCategory == .pad13 {
+						return 2
+					}
 					return 1
 				default:
+					if deviceCategory == .miniPad || deviceCategory == .midPad {
+						return 1
+					}
 					return 2
 				}
 			case 0.4...0.5:
-				return 3
-			case 0.6..<1:
 				switch orientation {
-				case .portrait, .portraitUpsideDown:
+				case .portrait, .portraitUpsideDown, .faceUp:
+					if deviceCategory == .miniPad {
+						return 1
+					} else if deviceCategory == .midPad {
+						return 2
+					}
 					return 3
 				default:
+					if deviceCategory == .miniPad || deviceCategory == .midPad {
+						return 2
+					}
+					return 3
+				}
+			case 0.6..<1:
+				switch orientation {
+				case .portrait, .portraitUpsideDown, .faceUp:
+					if deviceCategory == .pad13 {
+						return 3
+					}
+					return 2
+				default:
+					if deviceCategory == .miniPad {
+						return 3
+					}
 					return 4
 				}
 			case 1:
 				switch orientation {
-				case .portrait, .portraitUpsideDown:
+				case .portrait, .portraitUpsideDown, .faceUp:
+					if deviceCategory == .miniPad {
+						return 3
+					} else if deviceCategory == .midPad || deviceCategory == .pad11 {
+						return 4
+					}
 					return 5
 				default:
+					if deviceCategory == .miniPad || deviceCategory == .midPad {
+						return 5
+					}
 					return 6
 				}
 			default:
@@ -188,19 +222,5 @@ struct LayoutManager {
 		default:
 			return 1
 		}
-		
-        // let deviceScreenWidth = windowFrame.width
-        // switch deviceScreenWidth {
-        // case 0..<500: // for all iPhones
-        //     return 2
-        // case 500...800: // for small iPads
-        //     return 5
-        // case 800..<1200: // for big iPads
-        //     return 6
-        // case 1200...1600:
-        //     return 6
-        // default:
-        //     return 7
-        // }
     }
 }

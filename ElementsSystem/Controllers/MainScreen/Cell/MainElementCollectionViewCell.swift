@@ -15,20 +15,8 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
 			let value = element.getValueFor(characteristic: currentCharacteristic)
             valueLabel.text = value
             valueLabel.sizeToFit()
-			
-			if currentCharacteristic == .oxidation || currentCharacteristic == .config {
-				let widthFactor = valueLabel.bounds.width / bounds.width
-				if widthFactor > 0.7 {
-					valueLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize() - 4, weight: .semibold)
-				} else {
-					valueLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize(), weight: .semibold)
-				}
-				valueLabel.sizeToFit()
-			}
         }
     }
-    
-    lazy var emitterLayer = CAEmitterLayer()
     
     var element: ChemicalElement! {
         didSet {
@@ -50,9 +38,9 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
     private var titleLabel: UILabel!
     private var orderLabel: UILabel!
     private var nameLabel: UILabel!
-    private var valueLabel: UILabel!
+    private(set) var valueLabel: UILabel!
     
-    private var radiationImage: UIImageView!
+    private(set) var radiationImage: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,11 +78,6 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        emitterLayer.emitterCells = nil
-    }
-    
     private func commonInit() {
         titleLabel = UILabel()
         addSubview(titleLabel)
@@ -114,11 +97,9 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         valueLabel = UILabel()
         addSubview(valueLabel)
 		valueLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize(), weight: .semibold)
-        valueLabel.textColor = UIColor(named: "Value2")
         valueLabel.textAlignment = .right
         
         radiationImage = UIImageView()
-        radiationImage.tintColor = UIColor(named: "Value2")
         addSubview(radiationImage)
     }
     
