@@ -12,8 +12,19 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
 
     var currentCharacteristic: ElementCharacteristics = .config {
         didSet {
-            valueLabel.text = element.getValueFor(characteristic: currentCharacteristic)
+			let value = element.getValueFor(characteristic: currentCharacteristic)
+            valueLabel.text = value
             valueLabel.sizeToFit()
+			
+			if currentCharacteristic == .oxidation || currentCharacteristic == .config {
+				let widthFactor = valueLabel.bounds.width / bounds.width
+				if widthFactor > 0.7 {
+					valueLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize() - 4, weight: .semibold)
+				} else {
+					valueLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize(), weight: .semibold)
+				}
+				valueLabel.sizeToFit()
+			}
         }
     }
     
@@ -64,10 +75,10 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if element.isRadioactive != nil {
             rotateRadiationImage()
-            emit()
         }
-        
-        UIPasteboard.general.string = valueLabel.text?.replacingOccurrences(of: ".", with: ",")
+		let scalar = element.getScalarValue(characteristic: currentCharacteristic)
+			.replacingOccurrences(of: ".", with: ",")
+		UIPasteboard.general.string = scalar
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         
         UIView.animate(withDuration: 0.3) {
@@ -89,14 +100,10 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         addSubview(titleLabel)
         titleLabel.font = UIFont(name: "Times", size: 50)
         titleLabel.textAlignment = .left
-        // titleLabel.layer.shadowColor = UIColor(red: 0.7, green: 0.7, blue: 1, alpha: 1).cgColor
-        // titleLabel.layer.shadowRadius = 10
-        // titleLabel.textColor = UIColor(red: 0.8, green: 0.8, blue: 1, alpha: 1)
-        // titleLabel.layer.shadowOpacity = 1
         
         orderLabel = UILabel()
         addSubview(orderLabel)
-        orderLabel.font = UIFont(name: "Times-Bold", size: 17)
+        orderLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize(), weight: .semibold)
         orderLabel.textAlignment = .left
         
         nameLabel = UILabel()
@@ -106,9 +113,9 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         
         valueLabel = UILabel()
         addSubview(valueLabel)
-        valueLabel.font = .systemFont(ofSize: 17, weight: .semibold)
+		valueLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize(), weight: .semibold)
         valueLabel.textColor = UIColor(named: "Value2")
-        valueLabel.textAlignment = .left
+        valueLabel.textAlignment = .right
         
         radiationImage = UIImageView()
         radiationImage.tintColor = UIColor(named: "Value2")
@@ -123,24 +130,5 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         anim.isCumulative = true
         anim.repeatCount = 1
         radiationImage?.layer.add(anim, forKey: "anim")
-    }
-    
-    private func emit() {
-        emitterLayer.emitterPosition = CGPoint(x: bounds.midX, y: bounds.midY)
-            
-        let cell = CAEmitterCell()
-        cell.birthRate = 5
-        cell.lifetime = .random(in: 1...1.8)
-        cell.velocity = 200
-        cell.scale = 0.1
-        cell.emissionLongitude = CGFloat.pi
-        cell.emissionRange = CGFloat.pi / 4
-        cell.emissionRange = CGFloat.pi * 2.0
-        cell.color = UIColor.label.cgColor
-        cell.contents = UIImage(named: "square")!.cgImage
-            
-        emitterLayer.emitterCells = [cell]
-            
-        layer.addSublayer(emitterLayer)
     }
 }

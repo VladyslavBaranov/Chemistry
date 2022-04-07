@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ElementsSystem
+
+  Created by VladyslavMac on 06.04.2022.
+  
+*/
+
+"list_group_period" = "Group & Period";
+"list_config" = "Electron Configuration";
+"list_mass" = "Atomic mass";
+"list_radius" = "Atomic radius";
+"list_density" = "Density";
+"list_melt" = "Melting point";
+"list_boil" = "Boiling point";
+

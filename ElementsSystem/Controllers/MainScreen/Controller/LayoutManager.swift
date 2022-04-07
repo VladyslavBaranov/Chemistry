@@ -57,6 +57,19 @@ struct LayoutManager {
     
     static let mainScreenElementCollectionViewCellPadding: CGFloat = 10
 	
+	static func valueLabelFontSize() -> CGFloat {
+		switch DeviceCategory.getCurrentSizeCategory() {
+		case .smallPhone:
+			return 14
+		case .midSizePhone:
+			return 15
+		case .maxPhone:
+			return 17
+		default:
+			return 17
+		}
+	}
+	
 	func getLayoutType(windowFrame: CGRect) -> LayoutType {
 		let device = UIDevice.current.userInterfaceIdiom
 		let orientation = UIDevice.current.orientation

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ElementsSystem
+
+  Created by VladyslavMac on 06.04.2022.
+  
+*/
+
+"list_group_period" = "Grup ve Dönem";
+"list_config" = "Elektron Yapılandırması";
+"list_mass" = "Atomik kütle";
+"list_radius" = "Atom yarıçapı";
+"list_density" = "Yoğunluk";
+"list_melt" = "Erime noktası";
+"list_boil" = "Kaynama noktası";
+

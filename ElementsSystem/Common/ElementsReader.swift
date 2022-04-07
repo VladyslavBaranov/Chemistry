@@ -17,7 +17,7 @@ enum ElementCharacteristics: String, CaseIterable {
     case boilPoint = "list_boil"
     case oxidation = "Oxidation"
 	
-	func getLocazedString() -> String {
+	func getLocalizedString() -> String {
 		localizedString(rawValue)
 	}
 }
@@ -34,8 +34,36 @@ struct ChemicalElement: Decodable {
     var density: Double?
     var meltPoint: Double?
     var boilPoint: Double?
-    var oxidation: [Int]
+    var oxidation: [Int?]
     var isRadioactive: Bool?
+	
+	func getScalarValue(characteristic: ElementCharacteristics) -> String {
+		switch characteristic {
+		case .orderPeriod:
+			return "\(group), \(period)"
+		case .config:
+			if config.count == 1 {
+				return config[0]
+			} else if config.count == 2 {
+				return "[\(config[0])]\(config[1])"
+			}
+			return config.joined()
+		case .mass:
+			return "\(mass)"
+		case .radius:
+			return "\(radius)"
+		case .density:
+			return "\(density?.toCurrentDensityUnit() ?? 0)"
+		case .meltPoint:
+			return "\(meltPoint?.toCurrentTempeatureUnit() ?? 0)"
+		case .boilPoint:
+			return "\(boilPoint?.toCurrentTempeatureUnit() ?? 0)"
+		case .oxidation:
+			return oxidation.map { String($0 ?? 0) }
+			.joined(separator: ",")
+			.trimmingCharacters(in: .whitespacesAndNewlines)
+		}
+	}
     
     func getValueFor(characteristic: ElementCharacteristics) -> String {
         switch characteristic {
@@ -74,7 +102,10 @@ struct ChemicalElement: Decodable {
 				return "\(value.getFormattedString()) \(TemperatureUnit.currentUnit().sign())"
 			}
         case .oxidation:
-			return "\(oxidation)"
+			let string = oxidation.map { String($0 ?? 0) }
+				.joined(separator: ",")
+				.trimmingCharacters(in: .whitespacesAndNewlines)
+			return string.isEmpty ? "N/A" : string
         }
     }
 }
@@ -117,7 +148,11 @@ class ElementsReader {
             }
         } else {
             for i in 0..<copy.count {
-                copy[i].elements = copy[i].elements.filter { $0.name.lowercased().contains(key) }
+                copy[i].elements = copy[i].elements.filter {
+					let lowercasedName = $0.name.lowercased()
+					let lowercasedShortName = $0.short.lowercased()
+					return lowercasedName.contains(key) || lowercasedShortName.contains(key)
+				}
             }
         }
         copy.removeAll { $0.elements.isEmpty }

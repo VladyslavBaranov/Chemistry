@@ -42,7 +42,7 @@
                 "density": 0.0012506,
                 "meltPoint": -210.1,
                 "boilPoint": -195.79,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 8,
@@ -56,7 +56,7 @@
                 "density": 0.001429,
                 "meltPoint": -218.3,
                 "boilPoint": -182.9,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 0, 1, 2]
             },
             {
                 "order": 9,
@@ -70,7 +70,7 @@
                 "density": 0.001696,
                 "meltPoint": -219.6,
                 "boilPoint": -188.12,
-                "oxidation": [-1, 1]
+                "oxidation": [-1, 0]
             },
             {
                 "order": 15,
@@ -84,7 +84,7 @@
                 "density": 1.82,
                 "meltPoint": 44.2,
                 "boilPoint": 280.5,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 16,
@@ -98,7 +98,7 @@
                 "density": 2.067,
                 "meltPoint": 115.21,
                 "boilPoint": 444.72,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 0, 1, 2, 3, 4, 5, 6]
             },
             {
                 "order": 17,
@@ -112,7 +112,7 @@
                 "density": 0.0032,
                 "meltPoint": -101.5,
                 "boilPoint": -34.04,
-                "oxidation": [-1, 1]
+                "oxidation": [-1, 1, 2, 3, 4, 5, 6, 7]
             },
             {
                 "order": 34,
@@ -126,7 +126,7 @@
                 "density": 4.809,
                 "meltPoint": 221,
                 "boilPoint": 685,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 0, 1, 2, 3, 4, 5, 6]
             },
             {
                 "order": 35,
@@ -140,7 +140,7 @@
                 "density": 3.122,
                 "meltPoint": -7.3,
                 "boilPoint": 59,
-                "oxidation": [-1, 1]
+                "oxidation": [-1, 1, 3, 4, 5, 7]
             },
             {
                 "order": 53,
@@ -154,7 +154,7 @@
                 "density": 4.93,
                 "meltPoint": 113.7,
                 "boilPoint": 184.3,
-                "oxidation": [-1, 1]
+                "oxidation": [-1, 1, 2, 3, 4, 5, 6, 7]
             },
             
         ]
@@ -174,7 +174,7 @@
                 "density": 2.34,
                 "meltPoint": 2075,
                 "boilPoint": 4000,
-                "oxidation": [-1, 1]
+                "oxidation": [-5, -1, 0, 1, 2, 3]
             },
             {
                 "order": 14,
@@ -188,7 +188,7 @@
                 "density": 2.3296,
                 "meltPoint": 1414,
                 "boilPoint": 3265,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -3, -2, -1, 0, 1, 2, 3, 4]
             },
             {
                 "order": 32,
@@ -202,7 +202,7 @@
                 "density": 5.323,
                 "meltPoint": 939.3,
                 "boilPoint": 2820,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -3, -2, -1, 0, 1, 2, 3, 4]
             },
             {
                 "order": 33,
@@ -216,7 +216,7 @@
                 "density": 5.776,
                 "meltPoint": 817,
                 "boilPoint": 614,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 51,
@@ -230,7 +230,7 @@
                 "density": 6.685,
                 "meltPoint": -259.16,
                 "boilPoint": 1578,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 52,
@@ -244,7 +244,7 @@
                 "density": 6.232,
                 "meltPoint": 449.51,
                 "boilPoint": 988,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 0, 1, 2, 3, 4, 5, 6]
             }
         ]
     },
@@ -263,7 +263,7 @@
                 "density": 0.0001785,
                 "meltPoint": -272.2,
                 "boilPoint": -252.879,
-                "oxidation": [-1, 1]
+                "oxidation": []
             },
             {
                 "order": 10,
@@ -277,7 +277,7 @@
                 "density": 0.0008999,
                 "meltPoint": -248.59,
                 "boilPoint": -246.08,
-                "oxidation": [-1, 1]
+                "oxidation": []
             },
             {
                 "order": 18,
@@ -291,7 +291,7 @@
                 "density": 0.0017837,
                 "meltPoint": -189.3,
                 "boilPoint": -185.8,
-                "oxidation": [-1, 1]
+                "oxidation": [0]
             },
             {
                 "order": 36,
@@ -305,7 +305,7 @@
                 "density": 0.003733,
                 "meltPoint": -157.36,
                 "boilPoint": -153.22,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2]
             },
             {
                 "order": 54,
@@ -319,7 +319,7 @@
                 "density": 0.005887,
                 "meltPoint": -111.8,
                 "boilPoint": -108,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 2, 4, 6, 8]
             },
             {
                 "order": 86,
@@ -333,7 +333,7 @@
                 "density": 0.00973,
                 "meltPoint": -71,
                 "boilPoint": -61.7,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 6],
                 "isRadioactive": true
             }
         ]
@@ -353,7 +353,7 @@
                 "density": 0.534,
                 "meltPoint": 180.54,
                 "boilPoint": 1342,
-                "oxidation": [-1, 1]
+                "oxidation": [1]
             },
             {
                 "order": 11,
@@ -423,7 +423,7 @@
                 "density": null,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [1],
                 "isRadioactive": true
             }
         ]
@@ -443,7 +443,7 @@
                 "density": 1.85,
                 "meltPoint": 1287,
                 "boilPoint": 2470,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2]
             },
             {
                 "order": 12,
@@ -457,7 +457,7 @@
                 "density": 1.738,
                 "meltPoint": 650,
                 "boilPoint": 1090,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2]
             },
             {
                 "order": 20,
@@ -471,7 +471,7 @@
                 "density": 1.54,
                 "meltPoint": 842,
                 "boilPoint": 1484,
-                "oxidation": [-1, 1]
+                "oxidation": [1, 2]
             },
             {
                 "order": 38,
@@ -485,7 +485,7 @@
                 "density": 2.64,
                 "meltPoint": 777,
                 "boilPoint": 1382,
-                "oxidation": [-1, 1]
+                "oxidation": [1, 2]
             },
             {
                 "order": 56,
@@ -499,7 +499,7 @@
                 "density": 3.594,
                 "meltPoint": 727,
                 "boilPoint": 1870,
-                "oxidation": [-1, 1]
+                "oxidation": [1, 2]
             },
             {
                 "order": 88,
@@ -513,7 +513,7 @@
                 "density": 5.5,
                 "meltPoint": 700,
                 "boilPoint": 1737,
-                "oxidation": [-1, 1]
+                "oxidation": [2]
             }
         ]
     },
@@ -532,7 +532,7 @@
                 "density": 2.698,
                 "meltPoint": 660.32,
                 "boilPoint": 2519,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 1, 2, 3]
             },
             {
                 "order": 31,
@@ -546,7 +546,7 @@
                 "density": 5.907,
                 "meltPoint": 29.76,
                 "boilPoint": 2204,
-                "oxidation": [-1, 1]
+                "oxidation": [-5, -4, -3, -2, -1, 0, 1, 2, 3]
             },
             {
                 "order": 49,
@@ -560,7 +560,7 @@
                 "density": 7.31,
                 "meltPoint": 156.6,
                 "boilPoint": 2072,
-                "oxidation": [-1, 1]
+                "oxidation": [-5, -2, -1, 1, 2, 3]
             },
             {
                 "order": 50,
@@ -574,7 +574,7 @@
                 "density": 7.287,
                 "meltPoint": 231.93,
                 "boilPoint": 2602,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -3, -2, -1, 0, 1, 2, 3, 4]
             },
             {
                 "order": 81,
@@ -588,7 +588,7 @@
                 "density": 11.85,
                 "meltPoint": 304,
                 "boilPoint": 1473,
-                "oxidation": [-1, 1]
+                "oxidation": [-5, -2, -1, 1, 2, 3]
             },
             {
                 "order": 82,
@@ -602,7 +602,7 @@
                 "density": 11.342,
                 "meltPoint": 327.46,
                 "boilPoint": 1749,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -2, -1, 0, 1, 2, 3, 4]
             },
             {
                 "order": 83,
@@ -616,7 +616,7 @@
                 "density": 9.807,
                 "meltPoint": 371.3,
                 "boilPoint": 1564,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 1, 2, 3, 4, 5]
             },
             {
                 "order": 84,
@@ -630,7 +630,7 @@
                 "density": 9.32,
                 "meltPoint": 254,
                 "boilPoint": 962,
-                "oxidation": [-1, 1],
+                "oxidation": [-2, 2, 4, 5, 6],
                 "isRadioactive": true
             },
             {
@@ -645,7 +645,7 @@
                 "density": 7,
                 "meltPoint": 302,
                 "boilPoint": 336.8,
-                "oxidation": [-1, 1],
+                "oxidation": [-1, 1, 3, 5, 7],
                 "isRadioactive": true
             },
         ]
@@ -665,7 +665,7 @@
                 "density": 2.989,
                 "meltPoint": 1541,
                 "boilPoint": 2830,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3]
             },
             {
                 "order": 22,
@@ -679,7 +679,7 @@
                 "density": 4.54,
                 "meltPoint": 1668,
                 "boilPoint": 3287,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 0, 1, 2, 3, 4]
             },
             {
                 "order": 23,
@@ -693,7 +693,7 @@
                 "density": 6.11,
                 "meltPoint": 1910,
                 "boilPoint": 3407,
-                "oxidation": [-1, 1]
+                "oxidation": [3, -1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 24,
@@ -707,7 +707,7 @@
                 "density": 7.15,
                 "meltPoint": 1907,
                 "boilPoint": 2671,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -2, -1, 0, 1, 2, 3, 4, 5, 6]
             },
             {
                 "order": 25,
@@ -721,7 +721,7 @@
                 "density": 7.44,
                 "meltPoint": 1246,
                 "boilPoint": 2061,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
             },
             {
                 "order": 26,
@@ -735,7 +735,7 @@
                 "density": 7.874,
                 "meltPoint": 1538,
                 "boilPoint": 2861,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
             },
             {
                 "order": 27,
@@ -749,7 +749,7 @@
                 "density": 8.86,
                 "meltPoint": 1495,
                 "boilPoint": 2927,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 28,
@@ -763,7 +763,7 @@
                 "density": 8.912,
                 "meltPoint": 1455,
                 "boilPoint": 2913,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 0, 1, 2, 3, 4]
             },
             {
                 "order": 29,
@@ -777,7 +777,7 @@
                 "density": 8.933,
                 "meltPoint": 1084.62,
                 "boilPoint": 2927,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, 0, 1, 2, 3, 4]
             },
             {
                 "order": 30,
@@ -791,7 +791,7 @@
                 "density": 7.134,
                 "meltPoint": 419.53,
                 "boilPoint": 907,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, 0, 1, 2]
             },
             {
                 "order": 39,
@@ -805,7 +805,7 @@
                 "density": 4.469,
                 "meltPoint": 1526,
                 "boilPoint": 3345,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3]
             },
             {
                 "order": 40,
@@ -819,7 +819,7 @@
                 "density": 4.506,
                 "meltPoint": 1855,
                 "boilPoint": 4409,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, 0, 1, 2, 3, 4]
             },
             {
                 "order": 41,
@@ -833,7 +833,7 @@
                 "density": 8.57,
                 "meltPoint": 2477,
                 "boilPoint": 4744,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 42,
@@ -847,7 +847,7 @@
                 "density": 10.22,
                 "meltPoint": 2623,
                 "boilPoint": 4639,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -2, -1, 0, 1, 2, 3, 4, 5, 6]
             },
             {
                 "order": 43,
@@ -861,7 +861,7 @@
                 "density": 11.5,
                 "meltPoint": 2157,
                 "boilPoint": 4265,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -1, 0, 1, 2, 3, 4, 5, 6, 7]
             },
             {
                 "order": 44,
@@ -875,7 +875,7 @@
                 "density": 12.37,
                 "meltPoint": 2334,
                 "boilPoint": 4150,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -2, 0, 1, 2, 3, 4, 5, 6, 7, 8]
             },
             {
                 "order": 45,
@@ -889,7 +889,7 @@
                 "density": 12.41,
                 "meltPoint": 1964,
                 "boilPoint": 3695,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -1, 0, 1, 2, 3, 4, 5, 6]
             },
             {
                 "order": 46,
@@ -903,7 +903,7 @@
                 "density": 12.02,
                 "meltPoint": 1554.9,
                 "boilPoint": 2963,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3, 4]
             },
             {
                 "order": 47,
@@ -917,7 +917,7 @@
                 "density": 10.501,
                 "meltPoint": 961.78,
                 "boilPoint": 2162,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, -1, 0, 1, 2, 3]
             },
             {
                 "order": 48,
@@ -931,7 +931,7 @@
                 "density": 8.69,
                 "meltPoint": 321.07,
                 "boilPoint": 767,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, 1, 2]
             },
             {
                 "order": 72,
@@ -945,7 +945,7 @@
                 "density": 13.31,
                 "meltPoint": 2233,
                 "boilPoint": 4603,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, 0, 1, 2, 3, 4]
             },
             {
                 "order": 73,
@@ -959,7 +959,7 @@
                 "density": 16.654,
                 "meltPoint": 3017,
                 "boilPoint": 5458,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, 1, 0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 74,
@@ -973,7 +973,7 @@
                 "density": 19.25,
                 "meltPoint": 3422,
                 "boilPoint": 5555,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -2, -1, 0, 1, 2, 3, 4, 5, 6]
             },
             {
                 "order": 75,
@@ -987,7 +987,7 @@
                 "density": 21.02,
                 "meltPoint": 3186,
                 "boilPoint": 5596,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -1, 0, 1, 2, 3, 4, 5, 6, 7]
             },
             {
                 "order": 76,
@@ -1001,7 +1001,7 @@
                 "density": 22.59,
                 "meltPoint": 3033,
                 "boilPoint": 5012,
-                "oxidation": [-1, 1]
+                "oxidation": [-4, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]
             },
             {
                 "order": 77,
@@ -1015,7 +1015,7 @@
                 "density": 22.56,
                 "meltPoint": 2466,
                 "boilPoint": 4428,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
             },
             {
                 "order": 78,
@@ -1029,7 +1029,7 @@
                 "density": 21.46,
                 "meltPoint": 1768.3,
                 "boilPoint": 3825,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
             },
             {
                 "order": 79,
@@ -1043,7 +1043,7 @@
                 "density": 19.282,
                 "meltPoint": 1064.18,
                 "boilPoint": 2856,
-                "oxidation": [-1, 1]
+                "oxidation": [-3, -2, -1, 0, 1, 2, 3, 5]
             },
             {
                 "order": 80,
@@ -1057,7 +1057,7 @@
                 "density": 15.5336,
                 "meltPoint": -38.83,
                 "boilPoint": 356.73,
-                "oxidation": [-1, 1]
+                "oxidation": [-2, 1, 2]
             },
             {
                 "order": 104,
@@ -1071,7 +1071,7 @@
                 "density": 18.1,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [4],
                 "isRadioactive": true
             },
             {
@@ -1086,7 +1086,7 @@
                 "density": 39,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [5],
                 "isRadioactive": true
             },
             {
@@ -1101,7 +1101,7 @@
                 "density": 35,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [6],
                 "isRadioactive": true
             },
             {
@@ -1116,7 +1116,7 @@
                 "density": 37,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [7],
                 "isRadioactive": true
             },
             {
@@ -1131,7 +1131,7 @@
                 "density": 41,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [8],
                 "isRadioactive": true
             },
         ]
@@ -1151,7 +1151,7 @@
                 "density": 6.77,
                 "meltPoint": 798,
                 "boilPoint": 3360,
-                "oxidation": [-1, 1]
+                "oxidation": [2, 3, 4]
             },
             {
                 "order": 59,
@@ -1165,7 +1165,7 @@
                 "density": 6.773,
                 "meltPoint": 931,
                 "boilPoint": 3290,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3, 4, 5]
             },
             {
                 "order": 60,
@@ -1179,7 +1179,7 @@
                 "density": 7,
                 "meltPoint": 1021,
                 "boilPoint": 300,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 2, 3, 4]
             },
             {
                 "order": 61,
@@ -1193,7 +1193,7 @@
                 "density": 7.26,
                 "meltPoint": 113.3,
                 "boilPoint": 309,
-                "oxidation": [-1, 1]
+                "oxidation": [2, 3]
             },
             {
                 "order": 62,
@@ -1207,7 +1207,7 @@
                 "density": 7.52,
                 "meltPoint": 1072,
                 "boilPoint": 1803,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3]
             },
             {
                 "order": 63,
@@ -1221,7 +1221,7 @@
                 "density": 5.243,
                 "meltPoint": 822,
                 "boilPoint": 1527,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 2, 3]
             },
             {
                 "order": 64,
@@ -1235,7 +1235,7 @@
                 "density": 7.895,
                 "meltPoint": 1313,
                 "boilPoint": 3250,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3]
             },
             {
                 "order": 65,
@@ -1249,7 +1249,7 @@
                 "density": 8.229,
                 "meltPoint": 1356,
                 "boilPoint": 3230,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3, 4]
             },
             {
                 "order": 66,
@@ -1263,7 +1263,7 @@
                 "density": 8.55,
                 "meltPoint": 1412,
                 "boilPoint": 2567,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 2, 3, 4]
             },
             {
                 "order": 67,
@@ -1277,7 +1277,7 @@
                 "density": 8.795,
                 "meltPoint": 1474,
                 "boilPoint": 2700,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 2, 3]
             },
             {
                 "order": 68,
@@ -1291,7 +1291,7 @@
                 "density": 9.066,
                 "meltPoint": 1497,
                 "boilPoint": 2868,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 2, 3]
             },
             {
                 "order": 69,
@@ -1305,7 +1305,7 @@
                 "density": 9.321,
                 "meltPoint": 1545,
                 "boilPoint": 1950,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3]
             },
             {
                 "order": 70,
@@ -1319,7 +1319,7 @@
                 "density": 6.965,
                 "meltPoint": 819,
                 "boilPoint": 1196,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 1, 2, 3]
             },
             {
                 "order": 71,
@@ -1333,7 +1333,7 @@
                 "density": 9.84,
                 "meltPoint": 1663,
                 "boilPoint": 3402,
-                "oxidation": [-1, 1]
+                "oxidation": [0, 2, 3]
             },
         ]
     },
@@ -1352,7 +1352,7 @@
                 "density": 11.72,
                 "meltPoint": 1750,
                 "boilPoint": 4802,
-                "oxidation": [-1, 1],
+                "oxidation": [-1, 1, 2, 3, 4],
                 "isRadioactive": true
             },
             {
@@ -1367,7 +1367,7 @@
                 "density": 15.37,
                 "meltPoint": 1572,
                 "boilPoint": 4000,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3, 4, 5],
                 "isRadioactive": true
             },
             {
@@ -1382,7 +1382,7 @@
                 "density": 18.95,
                 "meltPoint": 1135,
                 "boilPoint": 3927,
-                "oxidation": [-1, 1],
+                "oxidation": [-1, 1, 2, 3, 4, 5, 6],
                 "isRadioactive": true
             },
             {
@@ -1397,7 +1397,7 @@
                 "density": 20.25,
                 "meltPoint": 644,
                 "boilPoint": 412,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3, 4, 5, 6, 7],
                 "isRadioactive": true
             },
             {
@@ -1412,7 +1412,7 @@
                 "density": 19.84,
                 "meltPoint": 640,
                 "boilPoint": 3230,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3, 4, 5, 6, 7, 8],
                 "isRadioactive": true
             },
             {
@@ -1427,7 +1427,7 @@
                 "density": 13.69,
                 "meltPoint": 1176,
                 "boilPoint": 2011,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3, 4, 5, 6, 7],
                 "isRadioactive": true
             },
             {
@@ -1442,7 +1442,7 @@
                 "density": 13.51,
                 "meltPoint": 1345,
                 "boilPoint": 3110,
-                "oxidation": [-1, 1],
+                "oxidation": [3, 4, 5, 6],
                 "isRadioactive": true
             },
             {
@@ -1457,7 +1457,7 @@
                 "density": 14.79,
                 "meltPoint": 1050,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3, 4, 5],
                 "isRadioactive": true
             },
             {
@@ -1472,7 +1472,7 @@
                 "density": 15.1,
                 "meltPoint": 900,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3, 4, 5],
                 "isRadioactive": true
             },
             {
@@ -1487,7 +1487,7 @@
                 "density": 13.5,
                 "meltPoint": 860,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3, 4],
                 "isRadioactive": true
             },
             {
@@ -1502,7 +1502,7 @@
                 "density": 1.85,
                 "meltPoint": 1527,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3],
                 "isRadioactive": true
             },
             {
@@ -1517,7 +1517,7 @@
                 "density": 1.85,
                 "meltPoint": 827,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3],
                 "isRadioactive": true
             },
             {
@@ -1532,7 +1532,7 @@
                 "density": 1.85,
                 "meltPoint": 827,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [2, 3],
                 "isRadioactive": true
             },
             {
@@ -1547,7 +1547,7 @@
                 "density": 9.84,
                 "meltPoint": 1627,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [3],
                 "isRadioactive": true
             },
         ]
@@ -1567,7 +1567,7 @@
                 "density": 27.5,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1582,7 +1582,7 @@
                 "density": 26.5,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1597,7 +1597,7 @@
                 "density": 23,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1612,7 +1612,7 @@
                 "density": 14,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1627,7 +1627,7 @@
                 "density": 16,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1642,7 +1642,7 @@
                 "density": 11.342,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1657,7 +1657,7 @@
                 "density": 13.5,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1672,7 +1672,7 @@
                 "density": 9.32,
                 "meltPoint": null,
                 "boilPoint": null,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1687,7 +1687,7 @@
                 "density": 7.2,
                 "meltPoint": null,
                 "boilPoint": 610,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
             {
@@ -1702,7 +1702,7 @@
                 "density": 7,
                 "meltPoint": null,
                 "boilPoint": 177,
-                "oxidation": [-1, 1],
+                "oxidation": [],
                 "isRadioactive": true
             },
         ]

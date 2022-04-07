@@ -34,30 +34,30 @@ final class MainViewController: UICollectionViewController {
 	]
 	
 	func createSectionForPad(windowFrame: CGRect, traitCollection: UITraitCollection) -> NSCollectionLayoutSection {
-			
-			let cellsPerRow = layoutManager.cellsForRow(windowFrame: windowFrame, traitCollection: traitCollection)
-
-			let fraction: CGFloat = 1 / CGFloat(cellsPerRow)
-			let inset = 5.0
-			// Item
-			let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalWidth(fraction * 0.7))
-			let item = NSCollectionLayoutItem(layoutSize: itemSize)
-			
-			item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-			// Group
-			let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction * 0.7))
-			let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
-			
-			// Section
-			let section = NSCollectionLayoutSection(group: group)
-			// section.orthogonalScrollingBehavior = .continuous
-			section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-			
-			let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
-			let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
-			section.boundarySupplementaryItems = [headerItem]
-			return section
-		}
+		
+		let cellsPerRow = layoutManager.cellsForRow(windowFrame: windowFrame, traitCollection: traitCollection)
+		
+		let fraction: CGFloat = 1 / CGFloat(cellsPerRow)
+		let inset = 5.0
+		// Item
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalWidth(fraction * 0.7))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		
+		item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		// Group
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction * 0.7))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
+		
+		// Section
+		let section = NSCollectionLayoutSection(group: group)
+		// section.orthogonalScrollingBehavior = .continuous
+		section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+		
+		let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+		let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+		section.boundarySupplementaryItems = [headerItem]
+		return section
+	}
 
     func createSectionForPhone(windowFrame: CGRect) -> NSCollectionLayoutSection {
 		// var hFraction: CGFloat = 0.7
@@ -109,11 +109,11 @@ final class MainViewController: UICollectionViewController {
         
         let actions = characteristicsList.map { characteristic -> UIAction in
             let action = UIAction(
-				title: characteristic.getLocazedString(),
+				title: characteristic.getLocalizedString(),
                 image: nil
             ) { (_) in
                 self.viewModel.setCurrentCharacteristic(characteristic)
-				self.navigationItem.title = characteristic.getLocazedString()
+				self.navigationItem.title = characteristic.getLocalizedString()
                 self.collectionView.reloadData()
             }
             return action
@@ -206,10 +206,10 @@ private extension MainViewController {
     func setupData() {
         viewModel = MainViewModel()
         viewModel.reloadCollectionView = { [unowned self] in
-			navigationItem.title = viewModel.getCurrentCharacteristic().getLocazedString()
+			navigationItem.title = viewModel.getCurrentCharacteristic().getLocalizedString()
             collectionView.reloadData()
 		}
-		navigationItem.title = viewModel.getCurrentCharacteristic().getLocazedString()
+		navigationItem.title = viewModel.getCurrentCharacteristic().getLocalizedString()
 	}
 	
 	@objc func openPreferences() {
