@@ -9,6 +9,15 @@ import Foundation
 
 final class MainViewModel {
     
+    var tapCount = 7 {
+        didSet {
+            if tapCount == 10 {
+                tapCount = 0
+                showAd?()
+            }
+        }
+    }
+    
     var searchKey = "" {
         didSet {
             if searchKey.isEmpty {
@@ -25,6 +34,7 @@ final class MainViewModel {
     var elementsReader: ElementsReader!
     
     var reloadCollectionView: (() -> ())?
+    var showAd: (() -> ())?
     
     init() {
         elementsReader = ElementsReader()

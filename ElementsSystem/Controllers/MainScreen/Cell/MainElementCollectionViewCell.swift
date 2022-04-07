@@ -8,8 +8,13 @@
 import UIKit
 import AVFoundation
 
+protocol MainElementCollectionViewCellDelegate: AnyObject {
+    func didTapOnItem()
+}
+
 final class MainElementCollectionViewCell: UICollectionViewCell {
 
+    weak var delegate: MainElementCollectionViewCellDelegate?
     var currentCharacteristic: ElementCharacteristics = .config {
         didSet {
 			let value = element.getValueFor(characteristic: currentCharacteristic)
@@ -61,6 +66,7 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        delegate?.didTapOnItem()
         if element.isRadioactive != nil {
             rotateRadiationImage()
         }

@@ -513,7 +513,8 @@
                 "density": 5.5,
                 "meltPoint": 700,
                 "boilPoint": 1737,
-                "oxidation": [2]
+                "oxidation": [2],
+                "isRadioactive": true
             }
         ]
     },

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 final class MainViewController: UICollectionViewController {
 	
@@ -19,6 +20,8 @@ final class MainViewController: UICollectionViewController {
 	}
 
     var viewModel: MainViewModel!
+    
+    private var interstitial: GADInterstitialAd?
     
     let searchController = UISearchController()
 
@@ -82,6 +85,7 @@ final class MainViewController: UICollectionViewController {
                 self.viewModel.setCurrentCharacteristic(characteristic)
 				self.navigationItem.title = characteristic.getLocalizedString()
                 self.collectionView.reloadData()
+                self.viewModel.tapCount += 1
             }
             return action
         }
@@ -95,6 +99,7 @@ final class MainViewController: UICollectionViewController {
         super.viewDidLoad()
         setupUI()
         setupData()
+        loadAds()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -117,6 +122,7 @@ final class MainViewController: UICollectionViewController {
             cell.element = element
             cell.currentCharacteristic = viewModel.getCurrentCharacteristic()
         }
+        cell.delegate = self
 		cell.backgroundColor = cellColorSchemes[indexPath.section].backgroundColor ?? .systemGray6
 		cell.valueLabel.textColor = cellColorSchemes[indexPath.section].valueLabelColor ?? .label
 		cell.radiationImage.tintColor = cellColorSchemes[indexPath.section].valueLabelColor ?? .label
@@ -177,8 +183,9 @@ private extension MainViewController {
 			navigationItem.title = viewModel.getCurrentCharacteristic().getLocalizedString()
             collectionView.reloadData()
 		}
+        viewModel.showAd = showAd
 		navigationItem.title = viewModel.getCurrentCharacteristic().getLocalizedString()
-	}
+    }
 	
 	@objc func openPreferences() {
 		let settingsViewController = SettingsTableViewController(style: .insetGrouped)
@@ -186,10 +193,34 @@ private extension MainViewController {
 		let nav = UINavigationController(rootViewController: settingsViewController)
 		present(nav, animated: true, completion: nil)
 	}
+    func loadAds() {
+        let request = GADRequest()
+        GADInterstitialAd.load(
+            withAdUnitID: GoogleMobileAdsCredentials.debugAdUnit,
+            request: request) { [self] ad, error in
+                if let error = error {
+                    print("#FAILED TO LOAD ADS: \(error.localizedDescription)")
+                }
+                interstitial = ad
+            }
+    }
+    func showAd() {
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+        } else {
+            print("#Ad wasn't ready")
+        }
+    }
 }
 
 extension MainViewController: SettingsTableViewControllerDelegate {
 	func shouldReloadTable() {
 		collectionView.reloadData()
 	}
+}
+
+extension MainViewController: MainElementCollectionViewCellDelegate {
+    func didTapOnItem() {
+        viewModel.tapCount += 1
+    }
 }

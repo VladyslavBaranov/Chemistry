@@ -87,10 +87,10 @@ final class SettingsTableViewController: UITableViewController {
 				.init(title: "kg/L", isSelected: false),
 				.init(title: "g/ml", isSelected: false),
 				.init(title: "kg/ml", isSelected: false),
-				.init(title: "g/m3", isSelected: false),
-				.init(title: "kg/m3", isSelected: false),
-				.init(title: "g/cm3", isSelected: false),
-				.init(title: "kg/cm3", isSelected: false),
+				.init(title: "g/m³", isSelected: false),
+				.init(title: "kg/m³", isSelected: false),
+				.init(title: "g/cm³", isSelected: false),
+				.init(title: "kg/cm³", isSelected: false),
 			]
 			let currentId = DensityUnit.currentUnit().rawValue
 			sections[currentId].isSelected = true
@@ -144,13 +144,13 @@ extension SettingsTableViewController: SelectionTableViewControllerDelegate {
 			case 3:
 				sections[1].options[1].value = "kg/ml"
 			case 4:
-				sections[1].options[1].value = "g/m3"
+				sections[1].options[1].value = "g/m³"
 			case 5:
-				sections[1].options[1].value = "kg/m3"
+				sections[1].options[1].value = "kg/m³"
 			case 6:
-				sections[1].options[1].value = "g/cm3"
+				sections[1].options[1].value = "g/cm³"
 			case 7:
-				sections[1].options[1].value = "kg/cm3"
+				sections[1].options[1].value = "kg/cm³"
 			default:
 				break
 			}
