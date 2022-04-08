@@ -196,11 +196,11 @@ private extension MainViewController {
     func loadAds() {
         let request = GADRequest()
         GADInterstitialAd.load(
-            withAdUnitID: GoogleMobileAdsCredentials.debugAdUnit,
+            withAdUnitID: GoogleMobileAdsCredentials.releaseAdUnit,
             request: request) { [self] ad, error in
-                if let error = error {
-                    print("#FAILED TO LOAD ADS: \(error.localizedDescription)")
-                }
+                // if let error = error {
+                    // print("#FAILED TO LOAD ADS: \(error.localizedDescription)")
+                // }
                 interstitial = ad
                 interstitial?.fullScreenContentDelegate = self
             }
@@ -209,7 +209,7 @@ private extension MainViewController {
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
         } else {
-            print("#Ad wasn't ready")
+            // print("#Ad wasn't ready")
         }
     }
 }
