@@ -130,11 +130,7 @@ struct LayoutManager {
 		case .padHorizontalHalf:
 			return (layoutType, 3)
 		case .padHorizontal75:
-			// if windowFrame.width < windowFrame.height {
-			// 	return (layoutType, 2)
-			// } else {
 			return (layoutType, 4)
-			// }
 		case .padVerticalFull:
 			return (layoutType, 4)
 		case .padVerticalOneThird:
@@ -162,8 +158,8 @@ struct LayoutManager {
 			switch fraction {
 			case 0...0.4:
 				switch orientation {
-				case .portrait, .portraitUpsideDown, .faceUp:
-					if deviceCategory == .pad13 {
+                case .portrait, .portraitUpsideDown, .faceUp, .faceDown:
+                    if deviceCategory == .pad13 || deviceCategory == .pad11 {
 						return 2
 					}
 					return 1
@@ -175,7 +171,7 @@ struct LayoutManager {
 				}
 			case 0.4...0.5:
 				switch orientation {
-				case .portrait, .portraitUpsideDown, .faceUp:
+                case .portrait, .portraitUpsideDown, .faceUp, .faceDown:
 					if deviceCategory == .miniPad {
 						return 1
 					} else if deviceCategory == .midPad {
@@ -190,20 +186,22 @@ struct LayoutManager {
 				}
 			case 0.6..<1:
 				switch orientation {
-				case .portrait, .portraitUpsideDown, .faceUp:
-					if deviceCategory == .pad13 {
+                case .portrait, .portraitUpsideDown, .faceUp, .faceDown:
+                    if deviceCategory == .pad13 || deviceCategory == .pad11 {
 						return 3
 					}
 					return 2
-				default:
-					if deviceCategory == .miniPad {
-						return 3
-					}
-					return 4
+                default:
+                    if deviceCategory == .miniPad {
+                        return 3
+                    } else if deviceCategory == .midPad || deviceCategory == .pad11 {
+                        return 4
+                    }
+                    return 5
 				}
 			case 1:
 				switch orientation {
-				case .portrait, .portraitUpsideDown, .faceUp:
+                case .portrait, .portraitUpsideDown, .faceUp, .faceDown:
 					if deviceCategory == .miniPad {
 						return 3
 					} else if deviceCategory == .midPad || deviceCategory == .pad11 {
@@ -213,8 +211,10 @@ struct LayoutManager {
 				default:
 					if deviceCategory == .miniPad || deviceCategory == .midPad {
 						return 5
-					}
-					return 6
+                    } else if deviceCategory == .pad11 {
+                        return 6
+                    }
+					return 7
 				}
 			default:
 				return 2

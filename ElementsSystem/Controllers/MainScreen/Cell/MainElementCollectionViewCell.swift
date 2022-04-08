@@ -41,9 +41,11 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
     }
     
     private var titleLabel: UILabel!
+    
     private var orderLabel: UILabel!
     private var nameLabel: UILabel!
     private(set) var valueLabel: UILabel!
+    private var stackView: UIStackView!
     
     private(set) var radiationImage: UIImageView!
     
@@ -59,10 +61,7 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         let padding = LayoutManager.mainScreenElementCollectionViewCellPadding
         orderLabel.frame.origin = .init(x: padding, y: padding)
-        titleLabel.center = .init(x: bounds.midX, y: bounds.midY)
-        nameLabel.frame.origin = .init(x: padding, y: bounds.height - nameLabel.bounds.height - padding)
-        valueLabel.frame.origin = .init(x: bounds.width - valueLabel.bounds.width - padding, y: padding)
-        radiationImage.frame = .init(x: bounds.width - 30 - padding, y: bounds.height - 30 - padding, width: 30, height: 30)
+        radiationImage.frame = .init(x: bounds.width - 30 - padding, y: padding, width: 30, height: 30)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -85,25 +84,44 @@ final class MainElementCollectionViewCell: UICollectionViewCell {
     }
     
     private func commonInit() {
-        titleLabel = UILabel()
-        addSubview(titleLabel)
-        titleLabel.font = UIFont(name: "Times", size: 50)
-        titleLabel.textAlignment = .left
         
         orderLabel = UILabel()
         addSubview(orderLabel)
         orderLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize(), weight: .semibold)
         orderLabel.textAlignment = .left
         
+        titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont(name: "Times", size: 50)
+        titleLabel.textAlignment = .center
+    
         nameLabel = UILabel()
-        addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = .systemFont(ofSize: 16)
-        nameLabel.textAlignment = .left
+        nameLabel.textAlignment = .center
         
         valueLabel = UILabel()
-        addSubview(valueLabel)
+        valueLabel.translatesAutoresizingMaskIntoConstraints = false
 		valueLabel.font = .systemFont(ofSize: LayoutManager.valueLabelFontSize(), weight: .semibold)
-        valueLabel.textAlignment = .right
+        valueLabel.textAlignment = .center
+        
+        stackView = UIStackView(arrangedSubviews: [titleLabel, nameLabel, valueLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .equalSpacing
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        addSubview(stackView)
+        
+        let padding = LayoutManager.mainScreenElementCollectionViewCellPadding
+        
+        NSLayoutConstraint.activate([
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            stackView.topAnchor.constraint(lessThanOrEqualTo: topAnchor, constant: 2 * padding),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
+        ])
+        
+        
         
         radiationImage = UIImageView()
         addSubview(radiationImage)

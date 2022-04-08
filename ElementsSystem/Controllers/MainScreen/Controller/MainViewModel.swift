@@ -9,7 +9,7 @@ import Foundation
 
 final class MainViewModel {
     
-    var tapCount = 7 {
+    var tapCount = 5 {
         didSet {
             if tapCount == 10 {
                 tapCount = 0

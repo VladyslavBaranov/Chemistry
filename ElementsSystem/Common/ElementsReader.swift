@@ -9,6 +9,7 @@ import Foundation
 
 enum ElementCharacteristics: String, CaseIterable {
     case orderPeriod = "list_group_period"
+    case neutrons = "list_neutrons"
     case config = "list_config"
     case mass = "list_mass"
     case radius = "list_radius"
@@ -41,6 +42,8 @@ struct ChemicalElement: Decodable {
 		switch characteristic {
 		case .orderPeriod:
 			return "\(group), \(period)"
+        case .neutrons:
+            return "\(Int(mass.rounded()) - order)"
 		case .config:
 			if config.count == 1 {
 				return config[0]
@@ -72,6 +75,8 @@ struct ChemicalElement: Decodable {
         switch characteristic {
         case .orderPeriod:
             return "\(group), \(period)"
+        case .neutrons:
+            return "\(Int(mass.rounded()) - order)"
         case .config:
             if config.count == 1 {
                 return config[0]

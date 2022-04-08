@@ -202,6 +202,7 @@ private extension MainViewController {
                     print("#FAILED TO LOAD ADS: \(error.localizedDescription)")
                 }
                 interstitial = ad
+                interstitial?.fullScreenContentDelegate = self
             }
     }
     func showAd() {
@@ -222,5 +223,11 @@ extension MainViewController: SettingsTableViewControllerDelegate {
 extension MainViewController: MainElementCollectionViewCellDelegate {
     func didTapOnItem() {
         viewModel.tapCount += 1
+    }
+}
+
+extension MainViewController: GADFullScreenContentDelegate {
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        loadAds()
     }
 }
